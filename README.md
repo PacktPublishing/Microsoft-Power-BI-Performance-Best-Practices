@@ -63,7 +63,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
 * Learn Power BI - Second Edition [[Packt]](https://www.packtpub.com/product/learn-power-bi-second-edition/9781801811958?utm_source=github&utm_medium=repository&utm_campaign=9781801811958) [[Amazon]](https://www.amazon.com/dp/B09K4479P2)
 
-## Get to Know the Authors
+## Get to Know the Author
 **Bhavik Merchant**
 has nearly 18 years of in-depth BI experience. He is a director of
 product analytics at Salesforce. Prior to that, he was at Microsoft, first as a cloud solution
