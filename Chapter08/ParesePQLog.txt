@@ -1,0 +1,30 @@
+(Input as table)=>
+let
+    Source = Table.Buffer(Input),
+    RemoveColumns = Table.SelectColumns(Source,{"Id", "Start Time", "End Time", "Query", "Data Source Query", "Step", "Category", "Operation", "Exclusive Duration", "Exclusive Duration (%)", "Row Count", "Path"}),
+    ReplaceNullsInPath = Table.ReplaceValue(RemoveColumns,null,"",Replacer.ReplaceValue,{"Path"}),
+    GetNodeOperation = (pId, pPath) as text =>
+        let 
+            FilterRows = Table.SelectRows(ReplaceNullsInPath, each [Id]=pId and [Path]=pPath),
+            FirstRow = FilterRows{0},
+            Op = try FirstRow[Operation] otherwise "Trace Gaps"
+        in  
+            Op,
+    CreatePath = Table.AddColumn(ReplaceNullsInPath, "Level", each 
+        let 
+            LevelNumber = List.Count(Text.Split([Path],"/")),
+            CurrentPath = [Path],
+            CurrentId = [Id],
+            PosList = {0..(LevelNumber - 1)},
+            GenerateText = List.Transform(PosList, each CurrentId & " " & Text.BeforeDelimiter(CurrentPath, "/", _) & " " & GetNodeOperation(CurrentId, Text.BeforeDelimiter(CurrentPath, "/", _))),
+            Output = Text.Combine(GenerateText, "|")
+        in  
+            Output
+            ),
+    FindMaxLevels = Table.AddColumn(CreatePath, "NumberOfLevels", each 1+Text.Length( Text.Select([Level],{"|"}))),
+    MaxLevels = List.Max(FindMaxLevels[NumberOfLevels]),
+    SplitLevels = Table.SplitColumn(FindMaxLevels, "Level", Splitter.SplitTextByDelimiter("|", QuoteStyle.Csv),MaxLevels),
+    RemoveMaxLevels = Table.RemoveColumns(SplitLevels,{"NumberOfLevels"}),
+    CalculateDuration = Table.TransformColumns(RemoveMaxLevels,{{"Exclusive Duration", Duration.TotalSeconds, type number}})
+in
+    CalculateDuration
