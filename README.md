@@ -1,18 +1,5 @@
 <p align='center'><a href='https://www.eventbrite.com/e/design-production-ready-power-bi-fabric-analytics-systems-workshop-tickets-1983351838740?aff=github'><img src='https://static.packt-cdn.com/assets/images/packt+events/workshop_PowerBI_github.jpg'/></a></p>
 
-<p align='center'><a href='https://www.eventbrite.com/e/design-production-ready-power-bi-fabric-analytics-systems-workshop-tickets-1983351838740?aff=github'><img src='https://static.packt-cdn.com/assets/images/packt+events/workshop_PowerBI_github.jpg'/></a></p>
-
-
-### [Packt Conference : Put Generative AI to work on Oct 11-13 (Virtual)](https://packt.link/JGIEY)
-
-<b><p align='center'>[![Packt Conference](https://hub.packtpub.com/wp-content/uploads/2023/08/put-generative-ai-to-work-packt.png)](https://packt.link/JGIEY)</p></b> 
-3 Days, 20+ AI Experts, 25+ Workshops and Power Talks 
-
-Code: <b>USD75OFF</b>
-
-
-
-
 # Microsoft Power BI Performance Best Practices
 
 <a href="https://www.packtpub.com/product/microsoft-power-bi-performance-best-practices/9781801076449?utm_source=github&utm_medium=repository&utm_campaign=9781801076449"><img src="https://static.packt-cdn.com/products/9781801076449/cover/smaller" alt="Microsoft Power BI Performance Best Practices" height="256px" align="right"></a>
